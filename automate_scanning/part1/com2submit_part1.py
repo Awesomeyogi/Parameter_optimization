@@ -6,8 +6,8 @@ Created on Sun Jun  3 18:34:12 2018
 
 files required 
 1) com files
-2) itp files  name_orignal.itp, name_zero.itp, name_corrected.itp
-
+2) name_org
+3) lig.gro # this is required to set correct format of .gro
 
 """
 import sys
@@ -183,19 +183,6 @@ for b,line in enumerate(itp_lines):
 
 f.close()
 
-# =============================================================================
-# for i,line in enumerate(itp_lines):
-#     for j,K in enumerate(list):
-#         print (i-ndx-2,K)
-#         if int(K) == i-ndx-2:
-#             f.write(new_dihedral[j])
-#             f.write("\n")
-#     #for p,K in enumerate(list):    
-#         if int(K) != i-ndx-2 and j==0:
-#             f.write(line)
-#             print(line)
-# f.close()
-# =============================================================================
 #______Writing script for zero dihedral__________
 
 for i in onlyfiles[:]:
