@@ -1,0 +1,69 @@
+;cpp                      = /lib/cpp
+
+; whatever
+include                  =            ;   directories to include your topology
+
+; opt or dyna
+integrator               = md         ;  steep or cg for optimisation / md-
+define = 
+
+; dyna parameters
+dt                       = 0.002      ;  time step in ps
+nsteps                   = 5000000   ;  maximum number of steps to integrate or minimize -1 nomax
+comm-mode                = Linear     ;  linear: rm center of mass trans. / Angular: rm trans & rot of c.m. / none 
+nstcomm                  = 100         ;  freq for center of mass motion removal
+comm_grps                = system     ;  pick the group for center of mass removal
+nstxout-compressed       = 5000       ;  freq to write coordinate to output trj file
+nstvout                  = 0          ;  freq to write velocities to output trj file
+nstfout                  = 0          ;  freq to write forces to output trj file
+nstlog                   = 5000      ;  freq to write energies to log file   
+nstenergy                = 1000       ;  freq to write energies to edr file (multiple of nstcalcenergy)
+compressed-x-precision            = 1000      ;  precision to write to xtc trajectory (1000)
+compressed-x-grps                 = system
+ ;  groups to include in the xtc file
+energygrps               = system ;  groups to include in the edr file
+
+; neighbour searching
+cutoff-scheme            = Verlet
+nstlist                  = 10         ;  freq to update neighbour list
+;ns_type                  = simple     ;  
+ns_type                  = grid       ; 
+pbc                      = xyz        ;  pbc type: xyz, no or xy
+rlist                    = 1.5        ;  cut-off distance for the short range ne
+
+
+
+; electrostatics & VDW
+coulombtype              = PME        ; cut-off or others
+rcoulomb                 = 1.5        ; distance cutt off (1.0 nm)
+vdwtype=Cut-off
+vdw_modifier=Potential-switch
+rvdw                     = 1.5        ; distance cutt off (1.0 nm)
+rvdw-switch              = 1.4
+
+; temperature § pressure coupling
+tcoupl                   = v-rescale         ;  no berendsen or noose-hoover or others...	
+tc_grps                  = system     ;  groups to connect separetly to temp bath
+tau_t                    = 0.2        ;  time constant for t coupling
+ref_t                    = 300        ;  ref temp. K
+Pcoupl                   = berendsen  ;  no, berendsen, parrinell, nttk
+pcoupltype               = semiisotropic  ;  (semi)isotropic, anisotropic, surface-tension
+tau_p                    = 1.0      ;  time constant for p coupling
+compressibility          = 4.5e-5 4.5e-5   ;  bar-1 for water at 300K compress=4.5e-5
+ref_p                    = 1.0 1.0       ;  ref pressure atm 
+refcoord_scaling         = all
+gen_vel                  = yes        ;  gen velocity
+gen_temp                 = 150        ;  gen temperature
+gen_seed                 = -1      ;  gen velocity, -1 use ID process number as a seed
+
+; constraints 
+constraints              = none
+;constraints              = all-bonds ;  all-bonds, none, hbonds, h-angles, all-angles, 
+constraint_algorithm     = LINCS
+lincs-order              = 4
+lincs-iter               = 1
+lincs-warnangle          = 30
+
+; freeze stuff 
+freezegrps               =      ;  groups to be frozen
+freezedim                =            ;  dimensions for which f

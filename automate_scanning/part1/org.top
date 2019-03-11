@@ -1,0 +1,19 @@
+
+[ defaults ]
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+1               2               yes              0.5     0.8333
+
+
+
+#include "bTVBT4_org.itp"
+
+
+
+[ system ]
+ BTV
+
+[ molecules ]
+; Compound        nmols
+ BTV              1
+
+
