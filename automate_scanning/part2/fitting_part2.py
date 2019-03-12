@@ -4,9 +4,9 @@
 Created on Sun Mar 10 08:24:43 2019
 requires following files
 1) dft_data.csv (this is taxt file contaning angle and sft scan energies)
-2)bTVBT4_zro.itp
-3)com files
-4)top files
+2)bTVBT4_Zro.itp
+3)com files 
+4)top file "cor.top" which include name "bTVBT4_Zro.itp"
 
 
 
@@ -91,7 +91,7 @@ R = pd.concat([dft_dat, df1,df2 ], axis=1, sort=False)
 
 #________________________________________________________
 
-z_e = R["pot_energy_zro"].values
+z_e = R["pot_energy_Zro"].values
 zro_engs = []
 print(len(z_e))
 for en in z_e:
