@@ -232,7 +232,7 @@ for i in onlyfiles[:]:
                 """#!/bin/bash -l
 #SBATCH -N 1
 #SBATCH -t 1:00:00
-#SBATCH -J prot-mol-md
+#SBATCH -J {}
 #SBATCH -A 2018-2-50      
 #SBATCH -e error.log
 #SBATCH -o output.log
@@ -254,10 +254,10 @@ aprun $APRUN_OPTIONS gmx_mpi grompp -f $cmd.mdp -c $input.gro -p cor.top -o $inp
 aprun $APRUN_OPTIONS gmx_mpi mdrun -s $input-$cmd-cor.tpr -rerun $input.gro -g $input-$cmd-cor.log 
 
 
-                """.format(name)
+                """.format(name,name)
                 )
         f1.close()
-        call("sbatch {}-zro.sh".format(name),shell=True)
+        call("sbatch {}-cor.sh".format(name),shell=True)
 
 
 
