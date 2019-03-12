@@ -113,7 +113,7 @@ for line in itp_lines[ndx2+2:]:
 
 
 #__________________________________________________________-
-f = open("bTVBT4_new2.itp","w")
+f = open("bTVBT4_org.itp","w")
 for i,line in enumerate(itp_lines[:ndx+2]):
     f.write(itp_lines[i])
 
