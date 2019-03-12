@@ -3,7 +3,7 @@
 """
 Created on Sun Mar 10 08:24:43 2019
 requires following files
-1) dft_data.csv (this is taxt file contaning angle and sft scan energies)
+1) dft_data.csv (this is taxt file contaning angle and dft scan energies) ** MAKE SURE DFT ENG CORRESPONDS TO DIH ANG OF INTREST
 2)bTVBT4_Zro.itp
 3)com files 
 4)top file "cor.top" which include name "bTVBT4_cor.itp"
