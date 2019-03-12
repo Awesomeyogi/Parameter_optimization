@@ -8,8 +8,8 @@ Created on Thu Mar  7 11:15:12 2019
 note that itp file should be genrated from acpype
 
 it requires two files 
-1) dft cordinates in xyz format
-2) itp file 
+1) dft cordinates in xyz format with name "dft_opt.xyz"
+2) itp file "bTVBT4.itp"
 
 
 """
